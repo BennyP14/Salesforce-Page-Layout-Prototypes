@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Salesforce Page Layout Prototypes</title>
+  <style>
+    :root{
+      --ink:#16181d; --ink-soft:#454b54; --muted:#6b7280;
+      --line:#e4e6ea; --card:#ffffff; --bg:#f4f5f7;
+      --brand:#0176d3; --brand-ink:#014486;
+      --accent-lead:#0176d3; --accent-account:#0d9488;
+      --accent-contact:#9265a0; --accent-brief:#e0457b; --accent-home:#c2410c;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      background:var(--bg); color:var(--ink);
+      font-family:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+      -webkit-font-smoothing:antialiased; line-height:1.5;
+    }
+    a{color:inherit;text-decoration:none}
+    a:hover{color:var(--brand-ink)}
+
+    .wrap{max-width:1080px;margin:0 auto;padding:0 32px}
+
+    header.top{
+      border-bottom:1px solid var(--line); background:var(--card);
+    }
+    .top-inner{display:flex;align-items:center;gap:14px;padding:20px 0}
+    .logo{
+      width:38px;height:38px;border-radius:9px;flex:0 0 auto;
+      background:linear-gradient(135deg,#0176d3,#5867e8);
+      display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:17px;
+      letter-spacing:-.02em;
+    }
+    .top-title{font-size:15px;font-weight:700}
+    .top-sub{font-size:12.5px;color:var(--muted)}
+
+    .hero{padding:64px 0 40px}
+    .eyebrow{
+      font-size:12px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+      color:var(--brand);margin-bottom:16px;
+    }
+    .hero h1{
+      font-size:40px;line-height:1.08;margin:0 0 18px;font-weight:800;letter-spacing:-.02em;
+      max-width:16ch;
+    }
+    .hero p{font-size:17px;color:var(--ink-soft);max-width:60ch;margin:0}
+
+    .grid{
+      display:grid;grid-template-columns:repeat(2,1fr);gap:18px;
+      padding:16px 0 24px;
+    }
+    .card{
+      position:relative;display:block;background:var(--card);
+      border:1px solid var(--line);border-radius:14px;padding:26px 26px 24px;
+      transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+      overflow:hidden;
+    }
+    .card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 14px 34px -14px rgba(20,24,33,.28);
+      border-color:#d3d7dd;
+    }
+    .card::before{
+      content:"";position:absolute;left:0;top:0;bottom:0;width:5px;background:var(--c,#0176d3);
+    }
+    .card .num{
+      font-size:12px;font-weight:700;color:var(--muted);letter-spacing:.04em;
+    }
+    .card .ico{
+      width:46px;height:46px;border-radius:11px;margin:6px 0 16px;
+      background:color-mix(in srgb,var(--c) 12%,#fff);
+      display:flex;align-items:center;justify-content:center;
+    }
+    .card h2{font-size:20px;margin:0 0 6px;font-weight:750;letter-spacing:-.01em}
+    .card p{font-size:14px;color:var(--ink-soft);margin:0 0 18px;line-height:1.5}
+    .card .go{
+      display:inline-flex;align-items:center;gap:7px;
+      font-size:13.5px;font-weight:700;color:var(--c);
+    }
+    .card .go svg{transition:transform .16s ease}
+    .card:hover .go svg{transform:translateX(4px)}
+    .pill{
+      position:absolute;top:22px;right:22px;font-size:10.5px;font-weight:700;
+      letter-spacing:.04em;text-transform:uppercase;color:var(--muted);
+      background:#f1f2f4;border:1px solid var(--line);border-radius:999px;padding:3px 9px;
+    }
+
+    footer{border-top:1px solid var(--line);margin-top:34px;padding:26px 0 48px}
+    footer p{font-size:12.5px;color:var(--muted);margin:0}
+
+    @media(max-width:720px){
+      .wrap{padding:0 20px}
+      .grid{grid-template-columns:1fr}
+      .hero{padding:44px 0 28px}
+      .hero h1{font-size:30px}
+    }
+  </style>
+</head>
+<body>
+  <header class="top">
+    <div class="wrap top-inner">
+      <div class="logo">AN</div>
+      <div>
+        <div class="top-title">Salesforce Page Layout Prototypes</div>
+        <div class="top-sub">Interactive design explorations · Audio Network CRM</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Design validation</div>
+      <h1>Redesigned Salesforce record pages, click-through ready.</h1>
+      <p>SLDS-native prototypes used to validate new page layouts before Salesforce configuration. Pick a record type below to open its interactive demo — each shows the agreed field, section, widget and tab changes from the design sessions.</p>
+    </section>
+
+    <section class="grid">
+      <a class="card" href="layout-lead/" style="--c:var(--accent-lead)">
+        <span class="num">01</span>
+        <div class="ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M13 2 3 14h7v8l10-12h-7V2z" fill="var(--accent-lead)"/></svg>
+        </div>
+        <h2>Lead</h2>
+        <p>Reduced path, sub-tabbed details, AI insights and research widgets.</p>
+        <span class="go">Open demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--accent-lead)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="card" href="layout-account/" style="--c:var(--accent-account)">
+        <span class="num">02</span>
+        <div class="ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 21V5a1 1 0 0 1 1-1h8a1 1 0 0 1 1 1v16M14 21V9h5a1 1 0 0 1 1 1v11M3 21h18" stroke="var(--accent-account)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2>Account</h2>
+        <p>Streamlined info, download access, purchase history and AI insights.</p>
+        <span class="go">Open demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--accent-account)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="card" href="layout-contact/" style="--c:var(--accent-contact)">
+        <span class="num">03</span>
+        <div class="ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="8" r="4" stroke="var(--accent-contact)" stroke-width="1.8"/><path d="M4 21v-1a6 6 0 0 1 6-6h4a6 6 0 0 1 6 6v1" stroke="var(--accent-contact)" stroke-width="1.8" stroke-linecap="round"/></svg>
+        </div>
+        <h2>Contact</h2>
+        <p>New marketing section, online access, contact history and a map.</p>
+        <span class="go">Open demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--accent-contact)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="card" href="layout-musicbrief/" style="--c:var(--accent-brief)">
+        <span class="num">04</span>
+        <div class="ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M12 3v10.55A4 4 0 1 0 14 17V7h4V3h-6z" fill="var(--accent-brief)"/></svg>
+        </div>
+        <h2>Music Brief</h2>
+        <p>Request / project / context sections, related lists in the sidebar.</p>
+        <span class="go">Open demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--accent-brief)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+
+      <a class="card" href="layout-homepage/" style="--c:var(--accent-home);grid-column:1 / -1">
+        <span class="num">05</span>
+        <div class="ico">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 11 12 4l9 7M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9" stroke="var(--accent-home)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2>Home Page</h2>
+        <p>Rep landing dashboard layout exploration.</p>
+        <span class="go">Open demo
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="var(--accent-home)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>Built with Claude Design · HTML mock-ups for layout validation — not connected to live Salesforce data.</p>
+    </div>
+  </footer>
+</body>
+</html>
